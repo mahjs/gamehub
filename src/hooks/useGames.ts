@@ -1,6 +1,7 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { GameQuery } from "../App";
 import APICient from "../services/api-client";
+import { ONEDAY } from "./useGenres";
 
 const useGames = (gameQuery: GameQuery) =>
   useInfiniteQuery<FetchResponse<Game>, Error>({
@@ -16,6 +17,7 @@ const useGames = (gameQuery: GameQuery) =>
         },
       }),
 
+    staleTime: ONEDAY,
     getNextPageParam: (lastPage, allPages) => {
       return lastPage.next ? allPages.length + 1 : undefined;
     },
