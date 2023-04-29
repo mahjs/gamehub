@@ -6,7 +6,8 @@ import APICient from "../services/api-client";
 const usePlatforms = () =>
   useQuery({
     queryKey: ["platforms"],
-    queryFn: new APICient<Platform>("/platforms/lists/parents").getAll,
+    queryFn: new APICient<Platform>(`/platforms/lists/parents`).getAll,
+
     staleTime: ONEDAY,
     initialData: {
       count: platforms.length,

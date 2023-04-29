@@ -12,14 +12,15 @@ import usePlatforms from "../hooks/usePlatforms";
 
 interface PlatformSelectorProps {
   onSelectPlatform: (p: Platform) => void;
-  selectedPlatform: Platform | null;
+  selectedPlatformId?: number;
 }
 
 const PlatformSelector = ({
   onSelectPlatform,
-  selectedPlatform,
+  selectedPlatformId,
 }: PlatformSelectorProps) => {
   const { data, error, isLoading } = usePlatforms();
+  const platform = data?.results.find((p) => p.id === selectedPlatformId);
 
   if (error) return null;
   if (isLoading)
@@ -30,7 +31,7 @@ const PlatformSelector = ({
     <Box marginLeft={10}>
       <Menu>
         <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-          {selectedPlatform ? selectedPlatform.name : "Platform"}
+          {platform?.name || "Platform"}
         </MenuButton>
         <MenuList>
           {data?.results.map((p) => (

@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import APICient from "../services/api-client";
-import platforms from "../data/platforms";
 import genres from "../data/genres";
 
 export const ONEDAY = 24 * 60 * 60 * 1000;
