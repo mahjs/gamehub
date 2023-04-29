@@ -6,7 +6,6 @@ import {
   MenuItem,
   MenuList,
   Skeleton,
-  Stack,
 } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 import usePlatforms from "../hooks/usePlatforms";
@@ -21,10 +20,10 @@ const PlatformSelector = ({
   onSelectPlatform,
   selectedPlatform,
 }: PlatformSelectorProps) => {
-  const { data: platforms, error, loading } = usePlatforms();
+  const { data: platforms, error, isLoading } = usePlatforms();
 
   if (error) return null;
-  if (loading)
+  if (isLoading)
     return (
       <Skeleton marginLeft={10} width="100px" height="40px" borderRadius={8} />
     );
