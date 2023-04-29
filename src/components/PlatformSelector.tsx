@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 import usePlatforms from "../hooks/usePlatforms";
+import useFindDataById from "../hooks/useFindData";
 
 interface PlatformSelectorProps {
   onSelectPlatform: (p: Platform) => void;
@@ -20,7 +21,7 @@ const PlatformSelector = ({
   selectedPlatformId,
 }: PlatformSelectorProps) => {
   const { data, error, isLoading } = usePlatforms();
-  const platform = data?.results.find((p) => p.id === selectedPlatformId);
+  const platform = useFindDataById(data.results, selectedPlatformId);
 
   if (error) return null;
   if (isLoading)
