@@ -23,6 +23,20 @@ interface Game {
   publishers: Publisher[];
 }
 
+interface GameTrailer {
+  id: number;
+  name: string;
+  preview: string;
+  data: { 480: string; max: string };
+}
+
+interface GameScreenshot {
+  id: number;
+  image: string;
+  width: number;
+  height: number;
+}
+
 interface Genre {
   id: number;
   name: string;
