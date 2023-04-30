@@ -1,3 +1,8 @@
+interface Publisher {
+  id: number;
+  name: string;
+}
+
 interface Platform {
   id: number;
   name: string;
@@ -13,6 +18,9 @@ interface Game {
   rating_top: number;
   slug: string;
   description_raw: string;
+  genres: Genre[];
+  metacritic: number;
+  publishers: Publisher[];
 }
 
 interface Genre {
