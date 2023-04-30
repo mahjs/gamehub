@@ -15,6 +15,12 @@ class APICient<T> {
       .get<FetchResponse<T>>(this.endpoint, config)
       .then((res) => res.data);
   };
+
+  get = (id: string, config?: AxiosRequestConfig) => {
+    return axiosInstance
+      .get<T>(`${this.endpoint}/${id}`, config)
+      .then((res) => res.data);
+  };
 }
 
 export default APICient;
